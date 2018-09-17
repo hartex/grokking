@@ -8,22 +8,28 @@ def array_sum(array):
     return inner(array, 0, 0)
 
 
-print(array_sum([1, 3, 5, 1, 6]))
+def count_elements(array):
+    def inner(arr, index):
+        if not arr:
+            return index
+        else:
+            return inner(arr[1:], index + 1)
+    return inner(array, 0)
 
-
-# def count_elements(array):
-#    def inner(arr, index):
-#        if len(arr) >= index
 
 def max_value(array):
-    def inner(array, index, result_value):
-        if index >= len(array):
+    def inner(arr, index, result_value):
+        if index >= len(arr):
             return result_value
         else:
-            value = array[index] if array[index] > result_value else result_value
-            return inner(array, index + 1, value)
+            value = arr[index] if arr[index] > result_value else result_value
+            return inner(arr, index + 1, value)
 
     return inner(array, 0, 0)
 
 
-print(max_value([1, 3, 5, 8, 6]))
+test_array = [1, 3, 5, 1, 6]
+
+print(array_sum(test_array))
+print(count_elements(test_array))
+print(max_value(test_array))

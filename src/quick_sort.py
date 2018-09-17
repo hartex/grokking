@@ -1,10 +1,13 @@
+from random import choice
+
+
 def quick_sort(array):
     if len(array) < 2:
         return array
     elif len(array) == 2:
         return array if array[0] < array[1] else [array[1], array[0]]
 
-    pivot = array[0]
+    pivot = choice(array)
     less_then = []
     greater_than = []
     for element in array[1:]:
